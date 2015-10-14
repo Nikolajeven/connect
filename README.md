@@ -36,6 +36,6 @@ Zie voor meer informatie:
 *Voeg beschrijving toe.*
 
 #### C0_struct
-*Voeg beschrijving toe.*
+*Structs* kunnen in Arduino niet in *fucties* worden gebruikt als ze [in het .ino bestand](http://stackoverflow.com/questions/17493354/arduino-struct-pointer-as-function-parameter) staan. Daarom staat de *struct* van het te verzenden/ontvangen bericht in een apart bestand. Bovendien wordt de *struct* op zowel de zender als de ontvanger gebruikt. Door de *struct* te importeren wordt voorkomen dat er verschillen ontstaan tussen de *struct* op de zender en de ontvanger.
 
 ## To-do list
