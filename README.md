@@ -16,7 +16,7 @@ Beide apparaten kunnen zowel zenden als ontvangen. Het apparaat dat de gebruiker
 ### Zender
 Dit .ino bestand is bedoeld voor de zender.
 
-### libraries
+### Libraries
 
 #### Jeelib
 JeeLib is een bibliotheek die het verzenden en ontvangen van berichten een stuk makkelijker maakt.
@@ -24,3 +24,14 @@ JeeLib is een bibliotheek die het verzenden en ontvangen van berichten een stuk 
 Zie voor meer informatie:
 - http://jeelabs.net/pub/docs/jeelib/
 - https://github.com/jcw/jeelib
+
+#### C0NNECT
+
+*Voeg beschrijving toe.*
+
+#### C0_joystick
+
+*Voeg beschrijving toe.*
+
+#### C0_struct
+*Voeg beschrijving toe.*
