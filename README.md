@@ -46,3 +46,7 @@ Nu: `if(C0_knopIngedrukt) {De knop is ingedrukt}`
 
 ## To-do en vooruitgang
 Op dit moment is de zender in staat de staat van de knoppen door te geven aan de ontvanger. De ontvanger toont de resultaten op de seriele monitor.
+
+To-do list:
+- Communicatie heen en weer. (momenteel nog eenrichtingsverkeer)
+- Protecol om het verzenden en ontvangen van berichten in goede banen te leiden bij meerdere zenders en ontvangers.
