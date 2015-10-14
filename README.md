@@ -6,7 +6,7 @@ Licentie: *http://creativecommons.org/licenses/by/4.0/*
 
 ## Inleiding
 
-*Voeg inleiding toe.*
+Voor dit project gebruiken we twee Arduino's met beiden een radiomodule. De radiomodules kunnen zowel zenden als ontvangen. Het apparaat dat de gebruiker in handen heeft noemen we de *zender*. Het andere apparaat noemen we de *ontvanger*. De twee apparaten moeten met elkaar kunnen blijven communiceren als er er meerdere zenders en ontvangers zijn.
 
 ## Bestanden
 
