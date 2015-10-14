@@ -35,9 +35,9 @@ Zie voor meer informatie:
 
 Met de functies in dit bestand maken we het gemakkelijker om te controleren wat de staat van een bepaalde knop is. Bovendien is de notatie iets verduidelijkt:
 
-Eerst: if(!digitalRead(C0_pinKnop)) {De knop is ingedrukt}
+Eerst: 'if(!digitalRead(C0_pinKnop)) {De knop is ingedrukt}'
 
-Nu: if(knopIngedrukt) {De knop is ingedrukt}
+Nu: 'if(knopIngedrukt) {De knop is ingedrukt}'
 
 #### C0_struct
 *Structs* kunnen in Arduino niet in *functies* worden gebruikt als ze [in het .ino bestand](http://stackoverflow.com/questions/17493354/arduino-struct-pointer-as-function-parameter) staan. Daarom staat de *struct* van het te verzenden/ontvangen bericht in een apart bestand. Bovendien wordt de *struct* op zowel de zender als de ontvanger gebruikt. Door de *struct* te importeren wordt voorkomen dat er verschillen ontstaan tussen de *struct* op de zender en de ontvanger.
