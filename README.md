@@ -31,7 +31,7 @@ Zie voor meer informatie:
 
 #### C0NNECT
 
-In dit bestand staan de functies `C0_zend(ABC)` en `C0_ontvang(ABC)`. (ABC = [bericht als struct](#c0_struct): `C0_structBericht`)
+In dit bestand staan de functies `C0_zend(bericht)` en `C0_ontvang()` (return > bericht). Het bericht is een [struct](#c0_struct): `C0_structBericht`.
 
 #### C0_joystick
 
