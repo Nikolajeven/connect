@@ -1,7 +1,6 @@
 # C0NNECT
 
-Door: *Joppe Hoekstra & Nikolaj Even*
-
+Door: *Joppe Hoekstra & Nikolaj Even*  
 Licentie: *http://creativecommons.org/licenses/by/4.0/*
 
 ## Inleiding
