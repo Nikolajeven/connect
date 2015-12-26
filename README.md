@@ -11,6 +11,7 @@ Voor dit project gebruiken we twee Arduino's met beiden een radiomodule. De radi
 
 Er zijn twee .ino bestanden die naar de Arduino's worden geupload. In de .ino bestanden wordt verwezen naar een aantal *libraries*. Deze bestanden moeten in [de *libraries* map van Arduino](https://www.arduino.cc/en/Hacking/Libraries) staan.
 
+```
 libraries/
   connect/
     connect.h
@@ -21,6 +22,7 @@ remote/
   joystick.h
 robot/
   robot.ino
+```
 
 ### Libraries
 
