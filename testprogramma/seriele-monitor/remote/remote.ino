@@ -40,5 +40,7 @@ void loop() {
     rf12_sendStart(RF12_HDR_DST|Receiver, &bericht, sizeof bericht);
     rf12_sendWait(RF12_NORMAL_SENDWAIT);
    }
+   
+   delay(500);
 
 }
