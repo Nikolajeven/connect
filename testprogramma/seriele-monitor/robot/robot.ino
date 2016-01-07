@@ -22,7 +22,7 @@ void setup() {
 
   Serial.begin(9600);
   Serial.println("...");
-  Serial.println("connect - robot");;
+  Serial.println("connect - robot");
   
 }
 
