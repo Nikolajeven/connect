@@ -4,7 +4,11 @@
 #include "struct.h"
 #include "joystick.h"
 
-const byte apparaatID = 1;
+MilliTimer sendTimer;
+const byte network  = 100;
+const byte Receiver = 2;
+const byte freq = RF12_868MHZ;
+const byte RF12_NORMAL_SENDWAIT = 0;
 
 structBericht bericht;
 
@@ -29,6 +33,12 @@ void loop() {
 
    bericht.inhoud = 123;
 
-   zend(bericht);
+   rf12_recvDone();
+   
+   if (rf12_canSend() && sendTimer.poll(1)) {
+    sendTimer.set(0);
+    rf12_sendStart(RF12_HDR_DST|Receiver, &bericht, sizeof bericht);
+    rf12_sendWait(RF12_NORMAL_SENDWAIT);
+   }
 
 }
