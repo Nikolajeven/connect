@@ -13,7 +13,12 @@ connect_structBericht bericht;
 
 void setup() {
   
-   rf12_initialize(Receiver, freq, network, 1600);
+  // Om de A/D conversie veel sneller te laten lopen. Scheelt 0.33 msec per conversie
+  bitClear(ADCSRA,ADPS0);
+  bitClear(ADCSRA,ADPS1);
+  bitSet(ADCSRA,ADPS2);
+  
+  rf12_initialize(Receiver, freq, network, 1600);
 
   Serial.begin(9600);
   Serial.println("robot");
