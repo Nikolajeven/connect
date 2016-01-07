@@ -1,12 +1,12 @@
 #include <JeeLib.h>
-#include <connect.h>
+#include <Connect.h>
 
 #include "struct.h"
 #include "joystick.h"
 
 MilliTimer sendTimer;
 const byte network  = 100;
-const byte Receiver = 2;
+const byte Sender = 1;
 const byte freq = RF12_868MHZ;
 const byte RF12_NORMAL_SENDWAIT = 0;
 
@@ -20,7 +20,7 @@ void setup() {
    bitSet(ADCSRA,ADPS2);
 
    Serial.begin(9600);
-   rf12_initialize(apparaatID, freq, network, 1600);
+   rf12_initialize(Sender, freq, network, 1600);
 
    Serial.println("...");
    Serial.println("connect - remote");
