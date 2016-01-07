@@ -12,6 +12,8 @@ const byte RF12_NORMAL_SENDWAIT = 0;
 connect_structBericht bericht;
 
 void setup() {
+  
+   rf12_initialize(apparaatID, freq, network, 1600);
 
   Serial.begin(9600);
   Serial.println("robot");
