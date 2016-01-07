@@ -21,7 +21,8 @@ void setup() {
   rf12_initialize(Receiver, freq, network, 1600);
 
   Serial.begin(9600);
-  Serial.println("robot");
+  Serial.println("...");
+  Serial.println("connect - robot");;
   
 }
 
