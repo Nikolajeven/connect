@@ -10,7 +10,7 @@ const byte Sender = 1;
 const byte freq = RF12_868MHZ;
 const byte RF12_NORMAL_SENDWAIT = 0;
 
-structBericht bericht;
+connect_structBericht bericht;
 
 void setup() {
 
