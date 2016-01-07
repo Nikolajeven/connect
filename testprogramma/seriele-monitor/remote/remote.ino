@@ -16,9 +16,9 @@ void setup() {
    bitClear(ADCSRA,ADPS1);
    bitSet(ADCSRA,ADPS2);
 
-   Serial.begin(9600);
    rf12_initialize(Sender, freq, network, 1600);
 
+   Serial.begin(9600);
    Serial.println("...");
    Serial.println("connect - remote");
 }
@@ -34,7 +34,7 @@ void loop() {
    
    if (rf12_canSend() && sendTimer.poll(1)) {
     sendTimer.set(0);
-    rf12_sendStart(RF12_HDR_DST|Receiver, &bericht, sizeof bericht);
+    rf12_sendStart(RF12_HDR_DST|Sender, &bericht, sizeof bericht);
     rf12_sendWait(RF12_NORMAL_SENDWAIT);
    }
    
