@@ -1,6 +1,6 @@
 // Libraries
 #include <JeeLib.h>
-#include <connect.h>
+#include <Connect.h>
 
 // Var/const voor zenden en ontvangen
 MilliTimer sendTimer; // Om getimed te zenden.
