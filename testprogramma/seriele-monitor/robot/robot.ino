@@ -13,7 +13,7 @@ connect_structBericht bericht;
 
 void setup() {
   
-   rf12_initialize(apparaatID, freq, network, 1600);
+   rf12_initialize(Receiver, freq, network, 1600);
 
   Serial.begin(9600);
   Serial.println("robot");
