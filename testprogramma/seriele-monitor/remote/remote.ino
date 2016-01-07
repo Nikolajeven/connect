@@ -1,9 +1,6 @@
 #include <JeeLib.h>
 #include <Connect.h>
 
-#include "struct.h"
-#include "joystick.h"
-
 MilliTimer sendTimer;
 const byte network  = 100;
 const byte Sender = 1;
