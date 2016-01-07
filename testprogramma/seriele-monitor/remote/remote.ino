@@ -26,7 +26,7 @@ void setup() {
 
 void loop() {
 
-   bericht.afzender = apparaatID;
+   bericht.afzender = Sender;
 
    bericht.inhoud = 123;
 
