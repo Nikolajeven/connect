@@ -36,6 +36,7 @@ void loop() {
     sendTimer.set(0);
     rf12_sendStart(RF12_HDR_DST|Sender, &bericht, sizeof bericht);
     rf12_sendWait(RF12_NORMAL_SENDWAIT);
+    Serial.println("bericht verzonden");
    }
    
    delay(500);
