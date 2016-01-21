@@ -6,6 +6,23 @@
 
 Adafruit_RGBLCDShield lcd = Adafruit_RGBLCDShield();
 
+//Motor Left
+int pinBIN1 =  8; //Direction
+int pinBIN2 =  9; //Direction
+int pinPWMB = 6; //Speed
+//Motor Right
+int pinAIN1 = 5; //Direction
+int pinAIN2 = 4; //Direction
+int pinPWMA = 3; //Speed
+//Standby
+int pinSTBY = 7;
+//Constants die het makkelijker maken
+static boolean turnCW    = 0; //for ClockWise motorDrive function
+static boolean turnCCW   = 1; //for CounterClockWise motorDrive function
+static boolean MotorRight= 0; //for motorDrive, motorStop, motorBrake functions
+static boolean MotorLeft = 1; //for motorDrive, motorStop, motorBrake functions
+float SoftStartFactor=1.0; 
+
 // unique node ID of receiver (1 through 30)
 const byte C0_apparaatID = 2;
 
