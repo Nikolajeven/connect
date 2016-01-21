@@ -31,8 +31,12 @@ void loop() {
     Serial.println("Ontvanger: knopRechtsIngedrukt");
     lcd.setCursor(1, 0);lcd.print("X");
     lcd.setCursor(1, 1);lcd.print("X");
+    motorDrive(MotorRight, turnCW,75);
   }
-  else if(C0_bericht.knopLinksIngedrukt) {Serial.println("Ontvanger: knopLinksIngedrukt");}
+  else if(C0_bericht.knopLinksIngedrukt) {
+    Serial.println("Ontvanger: knopLinksIngedrukt");
+    motorDrive(MotorRight, turnCCW,100);
+  }
   else if(C0_bericht.knopOnderIngedrukt) {Serial.println("Ontvanger: knopOnderIngedrukt");}
   else if(C0_bericht.knopBovenIngedrukt) {Serial.println("Ontvanger: knopBovenIngedrukt");}
 
