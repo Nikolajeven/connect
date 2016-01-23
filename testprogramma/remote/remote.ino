@@ -10,6 +10,10 @@ const byte apparaatID = 1;
 void setup() {
   setupInputs();
   setupConnect(apparaatID);
+  
+  Serial.begin(9600);
+  Serial.println("...");
+  Serial.println("Remote");
 }
 
 void loop() {

@@ -10,6 +10,9 @@ const byte pinKnopBoven = 4;
 const byte pinAnalogX = 0;
 const byte pinAnalogY = 1;
 
+int staatAnalogX = 500;
+int staatAnalogY = 500;
+
 void setupInputs(){
   pinMode(pinKnopSelect, INPUT);
    digitalWrite(pinKnopSelect, HIGH);
@@ -27,43 +30,7 @@ void setupInputs(){
    digitalWrite(pinKnopBoven, HIGH);
 }
 
-//test
-boolean knopIngedrukt(byte pinKnop) {
-  boolean resultaat;
-
-  if(!digitalRead(pinKnop)) {resultaat = true;}
-  else {resultaat = false;}
-
-  return resultaat;
-}
-
-byte staatAnalog(byte pinAnalog) {
-  // 0 = links of beneden
-  // 1 = midden
-  // 2 = rechts of boven
-  byte resultaat;
-
-  if(pinAnalog == 0){//505
-    if(analogRead(pinAnalog) < 490) {resultaat = 0;}
-    else if(analogRead(pinAnalog) > 550) {resultaat = 2;}
-    else {resultaat = 1;}
-  }
-  if(pinAnalog == 1){//535
-    if(analogRead(pinAnalog) < 490) {resultaat = 0;}
-    else if(analogRead(pinAnalog) > 550) {resultaat = 2;}
-    else {resultaat = 1;}
-  }
-
-  return resultaat;
-}
-
 void input(){
-  bericht.knopSelectIngedrukt = knopIngedrukt(pinKnopSelect);
-  bericht.knopRechtsIngedrukt = knopIngedrukt(pinKnopRechts);
-  bericht.knopLinksIngedrukt = knopIngedrukt(pinKnopLinks);
-  bericht.knopOnderIngedrukt = knopIngedrukt(pinKnopOnder);
-  bericht.knopBovenIngedrukt = knopIngedrukt(pinKnopBoven);
-
-  bericht.staatAnalogX = staatAnalog(pinAnalogX);
-  bericht.staatAnalogY = staatAnalog(pinAnalogY);
+  staatAnalogX = analogRead(pinAnalogX);
+  staatAnalogY = analogRead(pinAnalogY);
 }

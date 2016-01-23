@@ -15,16 +15,7 @@ void setupConnect(byte apparaatID){
 }
 
 typedef struct {
-   // false = niet ingedrukt / true = ingedrukt
-   boolean knopSelectIngedrukt = false;
-   boolean knopRechtsIngedrukt = false;
-   boolean knopLinksIngedrukt = false;
-   boolean knopOnderIngedrukt = false;
-   boolean knopBovenIngedrukt = false;
-
-   // 0 tot 1000 (500 is standaard)
-   int staatAnalogX = 500;
-   int staatAnalogY = 500;
+  byte statusMotor = 13;
 } structBericht; // Naam van structure
 
 void zend (structBericht bericht) {
