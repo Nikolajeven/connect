@@ -1,5 +1,5 @@
 #include <JeeLib.h>
-#include <Connect-testprogramma.h>
+#include <Connect.h>
 #include <Wire.h>                   //I2C library
 #include <Adafruit_MCP23017.h>      //Display library
 #include <Adafruit_RGBLCDShield.h>  //Display library

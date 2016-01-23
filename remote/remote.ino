@@ -1,5 +1,5 @@
 #include <JeeLib.h>
-#include <Connect-testprogramma.h>
+#include <Connect.h>
 
 #include "input.h"
 #include "think.h"
