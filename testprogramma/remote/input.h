@@ -1,69 +1,69 @@
-C0_structBericht C0_bericht;
+structBericht bericht;
 
 // Constanten aansluitingen knoppen
-const byte C0_pinKnopSelect= 7;
-const byte C0_pinKnopRechts = 3;
-const byte C0_pinKnopLinks = 6;
-const byte C0_pinKnopOnder = 5;
-const byte C0_pinKnopBoven = 4;
+const byte pinKnopSelect= 7;
+const byte pinKnopRechts = 3;
+const byte pinKnopLinks = 6;
+const byte pinKnopOnder = 5;
+const byte pinKnopBoven = 4;
 
-const byte C0_pinAnalogX = 0;
-const byte C0_pinAnalogY = 1;
+const byte pinAnalogX = 0;
+const byte pinAnalogY = 1;
 
 void setupInputs(){
-  pinMode(C0_pinKnopSelect, INPUT);
-   digitalWrite(C0_pinKnopSelect, HIGH);
+  pinMode(pinKnopSelect, INPUT);
+   digitalWrite(pinKnopSelect, HIGH);
 
-   pinMode(C0_pinKnopRechts, INPUT);
-   digitalWrite(C0_pinKnopRechts, HIGH);
+   pinMode(pinKnopRechts, INPUT);
+   digitalWrite(pinKnopRechts, HIGH);
 
-   pinMode(C0_pinKnopLinks, INPUT);
-   digitalWrite(C0_pinKnopLinks, HIGH);
+   pinMode(pinKnopLinks, INPUT);
+   digitalWrite(pinKnopLinks, HIGH);
 
-   pinMode(C0_pinKnopOnder, INPUT);
-   digitalWrite(C0_pinKnopOnder, HIGH);
+   pinMode(pinKnopOnder, INPUT);
+   digitalWrite(pinKnopOnder, HIGH);
 
-   pinMode(C0_pinKnopBoven, INPUT);
-   digitalWrite(C0_pinKnopBoven, HIGH);
+   pinMode(pinKnopBoven, INPUT);
+   digitalWrite(pinKnopBoven, HIGH);
 }
 
 //test
-boolean C0_knopIngedrukt(byte C0_pinKnop) {
-  boolean C0_resultaat;
+boolean knopIngedrukt(byte pinKnop) {
+  boolean resultaat;
 
-  if(!digitalRead(C0_pinKnop)) {C0_resultaat = true;}
-  else {C0_resultaat = false;}
+  if(!digitalRead(pinKnop)) {resultaat = true;}
+  else {resultaat = false;}
 
-  return C0_resultaat;
+  return resultaat;
 }
 
-byte C0_staatAnalog(byte C0_pinAnalog) {
+byte staatAnalog(byte pinAnalog) {
   // 0 = links of beneden
   // 1 = midden
   // 2 = rechts of boven
-  byte C0_resultaat;
+  byte resultaat;
 
-  if(C0_pinAnalog == 0){//505
-    if(analogRead(C0_pinAnalog) < 490) {C0_resultaat = 0;}
-    else if(analogRead(C0_pinAnalog) > 550) {C0_resultaat = 2;}
-    else {C0_resultaat = 1;}
+  if(pinAnalog == 0){//505
+    if(analogRead(pinAnalog) < 490) {resultaat = 0;}
+    else if(analogRead(pinAnalog) > 550) {resultaat = 2;}
+    else {resultaat = 1;}
   }
-  if(C0_pinAnalog == 1){//535
-    if(analogRead(C0_pinAnalog) < 490) {C0_resultaat = 0;}
-    else if(analogRead(C0_pinAnalog) > 550) {C0_resultaat = 2;}
-    else {C0_resultaat = 1;}
+  if(pinAnalog == 1){//535
+    if(analogRead(pinAnalog) < 490) {resultaat = 0;}
+    else if(analogRead(pinAnalog) > 550) {resultaat = 2;}
+    else {resultaat = 1;}
   }
 
-  return C0_resultaat;
+  return resultaat;
 }
 
 void input(){
-  C0_bericht.knopSelectIngedrukt = C0_knopIngedrukt(C0_pinKnopSelect);
-  C0_bericht.knopRechtsIngedrukt = C0_knopIngedrukt(C0_pinKnopRechts);
-  C0_bericht.knopLinksIngedrukt = C0_knopIngedrukt(C0_pinKnopLinks);
-  C0_bericht.knopOnderIngedrukt = C0_knopIngedrukt(C0_pinKnopOnder);
-  C0_bericht.knopBovenIngedrukt = C0_knopIngedrukt(C0_pinKnopBoven);
+  bericht.knopSelectIngedrukt = knopIngedrukt(pinKnopSelect);
+  bericht.knopRechtsIngedrukt = knopIngedrukt(pinKnopRechts);
+  bericht.knopLinksIngedrukt = knopIngedrukt(pinKnopLinks);
+  bericht.knopOnderIngedrukt = knopIngedrukt(pinKnopOnder);
+  bericht.knopBovenIngedrukt = knopIngedrukt(pinKnopBoven);
 
-  C0_bericht.C0_staatAnalogX = C0_staatAnalog(C0_pinAnalogX);
-  C0_bericht.C0_staatAnalogY = C0_staatAnalog(C0_pinAnalogY);
+  bericht.staatAnalogX = staatAnalog(pinAnalogX);
+  bericht.staatAnalogY = staatAnalog(pinAnalogY);
 }

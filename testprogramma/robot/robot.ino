@@ -7,16 +7,16 @@
 Adafruit_RGBLCDShield lcd = Adafruit_RGBLCDShield();
 
 // unique node ID of receiver (1 through 30)
-const byte C0_apparaatID = 2;
+const byte apparaatID = 2;
 
-C0_structBericht C0_bericht;
+structBericht bericht;
 
 void setup(){
-  rf12_initialize(C0_apparaatID, freq, network, 1600);
+  rf12_initialize(apparaatID, freq, network, 1600);
 
   Serial.begin(9600);
   Serial.println("...");
-  Serial.println("C0NNECT - Ontvanger");
+  Serial.println("Robot");
 
   lcd.begin(16, 2);
   lcd.setCursor(5, 0);
@@ -24,24 +24,44 @@ void setup(){
 }
 
 void loop() {
-  C0_bericht = C0_ontvang();
+  bericht = ontvang();
 
-  if(C0_bericht.knopSelectIngedrukt) {Serial.println("Ontvanger: knopSelectIngedrukt");}
-  else if(C0_bericht.knopRechtsIngedrukt) {
-    Serial.println("Ontvanger: knopRechtsIngedrukt");
+  if(bericht.knopSelectIngedrukt) {Serial.println("Robot | knopSelectIngedrukt");}
+  else if(bericht.knopRechtsIngedrukt) {
+    Serial.println("Robot | knopRechtsIngedrukt");
+    lcd.setCursor(0, 0);lcd.print(" ");
     lcd.setCursor(1, 0);lcd.print("X");
+    lcd.setCursor(0, 1);lcd.print(" ");
     lcd.setCursor(1, 1);lcd.print("X");
   }
-  else if(C0_bericht.knopLinksIngedrukt) {Serial.println("Ontvanger: knopLinksIngedrukt");}
-  else if(C0_bericht.knopOnderIngedrukt) {Serial.println("Ontvanger: knopOnderIngedrukt");}
-  else if(C0_bericht.knopBovenIngedrukt) {Serial.println("Ontvanger: knopBovenIngedrukt");}
-
-  if(C0_bericht.C0_staatAnalogX == 0 || C0_bericht.C0_staatAnalogX == 2) {
-    Serial.print("Ontvanger: staatAnalogX: ");
-    Serial.println(C0_bericht.C0_staatAnalogX);
+  else if(bericht.knopLinksIngedrukt) {
+    Serial.println("Robot | knopLinksIngedrukt");
+    lcd.setCursor(0, 0);lcd.print("X");
+    lcd.setCursor(1, 0);lcd.print(" ");
+    lcd.setCursor(0, 1);lcd.print("X");
+    lcd.setCursor(1, 1);lcd.print(" ");
   }
-  if(C0_bericht.C0_staatAnalogY == 0 || C0_bericht.C0_staatAnalogY == 2) {
-    Serial.print("Ontvanger: staatAnalogY: ");
-    Serial.println(C0_bericht.C0_staatAnalogY);
+  else if(bericht.knopOnderIngedrukt) {
+    Serial.println("Robot | knopOnderIngedrukt");
+    lcd.setCursor(0, 0);lcd.print(" ");
+    lcd.setCursor(1, 0);lcd.print(" ");
+    lcd.setCursor(0, 1);lcd.print("X");
+    lcd.setCursor(1, 1);lcd.print("X");
+  }
+  else if(bericht.knopBovenIngedrukt) {
+    Serial.println("Robot | knopBovenIngedrukt");
+    lcd.setCursor(0, 0);lcd.print("^");
+    lcd.setCursor(1, 0);lcd.print("^");
+    lcd.setCursor(0, 1);lcd.print(" ");
+    lcd.setCursor(1, 1);lcd.print(" ");
+  }
+
+  if(bericht.staatAnalogX == 0 || bericht.staatAnalogX == 2) {
+    Serial.print("Robot | staatAnalogX: ");
+    Serial.println(bericht.staatAnalogX);
+  }
+  if(bericht.staatAnalogY == 0 || bericht.staatAnalogY == 2) {
+    Serial.print("Robot | staatAnalogY: ");
+    Serial.println(bericht.staatAnalogY);
   }
 }
