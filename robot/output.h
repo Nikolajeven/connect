@@ -1,4 +1,6 @@
 unsigned long tijdSchermBijgewerkt;
+byte tijd;
+boolean beweegStap;
 
 Adafruit_RGBLCDShield lcd = Adafruit_RGBLCDShield();
 
@@ -131,17 +133,21 @@ void output(){
   }
 
   if(millis() > (tijdSchermBijgewerkt + 500)){
-    lcd.setCursor(0, 1);
-    switch(bericht.statusMotor){
-      case 0:
-        lcd.print("Sta stil");
-        break;
-      default:
-        lcd.print("Beweeg  ");
-        break;
+    lcd.setCursor(15, 0);
+    if(bericht.statusMotor == 0){
+      if(beweegStap){beweegStap = false;lcd.write(byte(2));}
+      else{beweegStap = true;lcd.write(byte(3));}
     }
-    Serial.println(bericht.statusMotor);
-
+    else{
+      if(beweegStap){beweegStap = false;lcd.write(byte(0));}
+      else{beweegStap = true;lcd.write(byte(1));}
+    }
+    
+    lcd.setCursor(14, 0);
+    if(nietVerbonden){lcd.print(" ");}
+    else{lcd.write(byte(4));}
+    
+    Serial.println(bericht.statusMotor);    
     tijdSchermBijgewerkt = millis();
   }
 }
