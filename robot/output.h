@@ -2,7 +2,9 @@ unsigned long tijdSchermBijgewerkt;
 byte tijd;
 boolean beweegStap;
 
-Adafruit_RGBLCDShield lcd = Adafruit_RGBLCDShield();
+// These #defines make it easy to set the backlight color
+#define OFF 0x0
+#define ON 0x1
 
 //Motor Left
 int pinBIN1 =  8; //Direction
@@ -144,8 +146,14 @@ void output(){
     }
     
     lcd.setCursor(14, 0);
-    if(nietVerbonden){lcd.print(" ");}
-    else{lcd.write(byte(4));}
+    if(nietVerbonden){
+      laatsteResultaatStatusMotor = 0; // Als de robot geen bericht ontvangt van de remote (13) stopt de motor
+      lcd.print(" "); // Verwijder vinkje van beeldscherm
+    }
+    else{lcd.write(byte(4));} // Plaats vinkje
+    
+    if(schermAan){lcd.setBacklight(ON);}
+    else{lcd.setBacklight(OFF);}
     
     Serial.println(bericht.statusMotor);    
     tijdSchermBijgewerkt = millis();

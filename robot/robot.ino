@@ -4,13 +4,11 @@
 #include <Adafruit_MCP23017.h>      //Display library
 #include <Adafruit_RGBLCDShield.h>  //Display library
 
+Adafruit_RGBLCDShield lcd = Adafruit_RGBLCDShield();//wordt in input (knoppen) en output (beeldscherm) gebruikt
+
 #include "input.h"
 #include "think.h"
 #include "output.h"
-
-// These #defines make it easy to set the backlight color
-#define OFF 0x0
-#define ON 0x1
 
 byte eersteStap[8] = {
   B00110,
@@ -85,17 +83,5 @@ void loop() {
   input();
   think();
   output();
-  
-  uint8_t buttons = lcd.readButtons();
-
-  if (buttons) {
-
-    if (buttons & BUTTON_UP) {
-      lcd.setBacklight(ON);
-    }
-    if (buttons & BUTTON_DOWN) {
-      lcd.setBacklight(OFF);
-    }
-  }
   
 }
