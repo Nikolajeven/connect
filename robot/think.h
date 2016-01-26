@@ -10,7 +10,7 @@ void think(){
     bericht.statusMotor = laatsteResultaatStatusMotor;
     
     // De robot ontvangt niet continu berichten van de remote, ook als ze wel verbonden zijn. Als het meer dan een halve seconde geleden is dat de remote voor het laatst een bericht van de remote heeft ontvangen, is de remote niet meer verbonden met de robot.
-    if(millis() > (tijdLaatsteBerichtOntvangen + 500)){
+    if(tijd > (tijdLaatsteBerichtOntvangen + 500)){
       nietVerbonden = true;
     }
     else{nietVerbonden = false;}//wel verbonden
@@ -18,7 +18,7 @@ void think(){
   }
   else{// Het bericht is door de remote verzonden
     laatsteResultaatStatusMotor = bericht.statusMotor;
-    tijdLaatsteBerichtOntvangen = millis();
+    tijdLaatsteBerichtOntvangen = tijd;
   }
   
   if (buttons) {

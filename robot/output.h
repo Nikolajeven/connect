@@ -1,5 +1,4 @@
 unsigned long tijdSchermBijgewerkt;
-byte tijd;
 boolean beweegStap;
 
 // These #defines make it easy to set the backlight color
@@ -134,7 +133,7 @@ void output(){
       break;
   }
 
-  if(millis() > (tijdSchermBijgewerkt + 500)){
+  if(tijd > (tijdSchermBijgewerkt + 500)){
     lcd.setCursor(15, 0);
     if(bericht.statusMotor == 0){
       if(beweegStap){beweegStap = false;lcd.write(byte(2));}
@@ -155,7 +154,7 @@ void output(){
     if(schermAan){lcd.setBacklight(ON);}
     else{lcd.setBacklight(OFF);}
     
-    Serial.println(bericht.statusMotor);    
-    tijdSchermBijgewerkt = millis();
+    //Serial.println(bericht.statusMotor);    
+    tijdSchermBijgewerkt = tijd;
   }
 }
