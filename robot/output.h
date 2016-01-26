@@ -155,20 +155,20 @@ void output(){
       motorDrive(MotorRight, turnCW,255);
       break;
     case 5:
-      motorDrive(MotorLeft, turnCW,128);
-      motorDrive(MotorRight, turnCCW,128);
+      motorDrive(MotorLeft, turnCW,50);
+      motorDrive(MotorRight, turnCCW,100);
       break;
     case 6:
-      motorDrive(MotorLeft, turnCW,225);
-      motorDrive(MotorRight, turnCCW,225);
+      motorDrive(MotorLeft, turnCW,100);
+      motorDrive(MotorRight, turnCCW,150);
       break;
     case 7:
-      motorDrive(MotorLeft, turnCCW,128);
-      motorDrive(MotorRight, turnCW,128);
+      motorDrive(MotorLeft, turnCCW,50);
+      motorDrive(MotorRight, turnCW,100);
       break;
     case 8:
-      motorDrive(MotorLeft, turnCW,225);
-      motorDrive(MotorRight, turnCCW,225);
+      motorDrive(MotorLeft, turnCCW,100);
+      motorDrive(MotorRight, turnCW,150);
       break;
     case 9:
       motorDrive(MotorLeft, turnCCW,100);
