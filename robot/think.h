@@ -1,7 +1,8 @@
 byte laatsteResultaatStatusMotor = 0;
 unsigned long tijdLaatsteBerichtOntvangen;
+unsigned long tijdLaatsteKnopIngedrukt;
 boolean nietVerbonden;
-boolean schermAan;
+boolean schermAan = true;
 
 void think(){
   
@@ -22,8 +23,12 @@ void think(){
   }
   
   if (buttons) {
-    if (buttons & BUTTON_UP) {schermAan = true;}
-    if (buttons & BUTTON_DOWN) {schermAan = false;}
+    if(buttons & BUTTON_UP || buttons & BUTTON_DOWN || buttons & BUTTON_LEFT || buttons & BUTTON_RIGHT || buttons & BUTTON_SELECT){
+      tijdLaatsteKnopIngedrukt = tijd;
+      Serial.println("Nieuwe tijd"); 
+    }
   }
   
+  if(tijd > (tijdLaatsteKnopIngedrukt + 3000)){schermAan = false;}
+  else{schermAan = true;}
 }
