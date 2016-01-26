@@ -22,6 +22,61 @@ static boolean MotorRight= 0; //for motorDrive, motorStop, motorBrake functions
 static boolean MotorLeft = 1; //for motorDrive, motorStop, motorBrake functions
 float SoftStartFactor=1.0;
 
+byte eersteStap[8] = {
+  B00110,
+  B00110,
+  B00000,
+  B00110,
+  B00101,
+  B01001,
+  B10010,
+};
+byte tweedeStap[8] = {
+  B00110,
+  B00110,
+  B00000,
+  B00110,
+  B01010,
+  B01010,
+  B10100,
+};
+byte eersteHallo[8] = {
+  B01100,
+  B01100,
+  B00000,
+  B11111,
+  B01100,
+  B01100,
+  B10010,
+};
+byte tweedeHallo[8] = {
+  B01100,
+  B01100,
+  B00001,
+  B11110,
+  B01100,
+  B01100,
+  B10010,
+};
+byte verbonden[8] = {
+  B00000,
+  B00000,
+  B00001,
+  B00010,
+  B10100,
+  B01000,
+  B00000,
+};
+
+void setupOutput(){
+    lcd.begin(16, 2);
+  lcd.createChar(0, eersteStap);
+  lcd.createChar(1, tweedeStap);
+  lcd.createChar(2, eersteHallo);
+  lcd.createChar(3, tweedeHallo);
+  lcd.createChar(4, verbonden);
+}
+
 void motorDrive(boolean motorNumber, boolean motorDirection, int motorSpeed){
   /*
   This Drives a specified motor, in a specific direction, at a specified speed:
